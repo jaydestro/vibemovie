@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section>
+    <h2>Movies</h2>
+    {% if movies %}
+      <ul>
+        {% for m in movies %}
+          <li>
+            <a href="{{ url_for('movie_detail', movie_id=m['id']) }}">{{ m['title'] }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No movies yet.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h3>Add a movie</h3>
+    <form method="post" action="{{ url_for('create_movie') }}">
+      <input type="text" name="title" placeholder="Movie title" required />
+      <button type="submit">Add</button>
+    </form>
+  </section>
+{% endblock %}

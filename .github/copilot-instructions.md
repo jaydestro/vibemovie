@@ -10,26 +10,6 @@ in this case, we're using:
 -  Visual Studio Code
 -  GitHub Copilot Agent mode - gpt-5 model (preview)Azure Cosmos DB vNext Linux emulator - 
 docs: https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux
--  Azure Cosmos DB VS Code extension
-</Goals>
-
-<Limitations>
-- This will be for a conference talk, so it's important that steps be simple. 
-</Limitations>
-
-# VibeMovie
-
-Your task is to create a simple Python web application for listing movies and giving a text and star-based review (0–5 stars). Movies, ratings, and comments should be stored in an Azure Cosmos DB database running on the local emulator on my PC.
-
-<Goals>
-The focus is less on the output and more on the tooling used to create it.
-
-In this case, we're using:
-
-- Visual Studio Code
-- GitHub Copilot Agent mode — gpt-5 model (preview)
-- Azure Cosmos DB vNext Linux emulator (docs: https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux)
-- Azure Cosmos DB VS Code extension
 </Goals>
 
 <Limitations>
@@ -46,6 +26,7 @@ In this case, we're using:
 
 <BuildInstructions>
 
+- Always start the Azure Cosmos DB Emulator before running the app or any tests that talk to the database. Document the exact docker commands and verify readiness.
 - For each of bootstrap, build, test, run, lint, and any other scripted step, document the sequence of steps to take to run it successfully as well as the versions of any runtime or build tools used.
 - Each command should be validated by running it to ensure that it works correctly, including any preconditions and postconditions.
 - Try cleaning the repo and environment and running commands in different orders; document errors and misbehavior observed, as well as any steps used to mitigate the problem.

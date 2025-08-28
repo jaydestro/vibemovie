@@ -1,0 +1,8 @@
+body { font-family: system-ui, Arial, sans-serif; max-width: 800px; margin: 2rem auto; }
+header h1 a { text-decoration: none; color: #222; }
+ul.flashes { list-style: none; padding: 0; }
+ul.flashes li { padding: .5rem .75rem; margin-bottom: .5rem; border-radius: 6px; }
+ul.flashes li.success { background: #e6ffed; }
+ul.flashes li.error { background: #ffecec; }
+ul.flashes li.warning { background: #fff7e6; }
+section { margin-bottom: 1.25rem; }

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if not movie %}
+    <p>Movie not available.</p>
+  {% else %}
+  <article>
+    <h2>{{ movie['title'] }}</h2>
+    <p>Average rating: {% if avg is not none %}{{ avg }} / 5{% else %}No ratings yet{% endif %}</p>
+  </article>
+
+  <section>
+    <h3>Add rating</h3>
+    <form method="post" action="{{ url_for('add_rating', movie_id=movie['id']) }}">
+      <label for="stars">Stars (0-5):</label>
+      <input id="stars" type="number" name="stars" min="0" max="5" step="1" required />
+      <button type="submit">Rate</button>
+    </form>
+  </section>
+
+  <section>
+    <h3>Add comment</h3>
+    <form method="post" action="{{ url_for('add_comment', movie_id=movie['id']) }}">
+      <textarea name="text" rows="3" cols="40" placeholder="Your thoughts..." required></textarea>
+      <button type="submit">Comment</button>
+    </form>
+  </section>
+
+  <section>
+    <h3>Ratings</h3>
+    {% if ratings %}
+      <ul>
+        {% for r in ratings %}
+          <li>{{ r['stars'] }} / 5</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No ratings yet.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h3>Comments</h3>
+    {% if comments %}
+      <ul>
+        {% for c in comments %}
+          <li>{{ c['text'] }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No comments yet.</p>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endblock %}
